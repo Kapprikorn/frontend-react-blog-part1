@@ -1,0 +1,34 @@
+.header-wrapper {
+  background: var(--color-secondary);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  & ul {
+    padding: 0 0 0 16px;
+    flex-grow: 1;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & li {
+      list-style-type: none;
+      flex-grow: 1;
+      text-align: right;
+    }
+  }
+}
+
+.nav-link {
+  color: var(--color-white);
+}
+
+.navigation-logo-wrapper {
+  width: 200px;
+}
