@@ -1,5 +1,7 @@
 .header-wrapper {
   background: var(--color-secondary);
+  padding: 12px 0;
+  display: flex;
 }
 
 .header-content {
@@ -7,6 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-grow: 1;
 
   & ul {
     padding: 0 0 0 16px;
@@ -27,8 +30,15 @@
 
 .nav-link {
   color: var(--color-white);
+  text-decoration: none;
+
+  &.active {
+    color: var(--color-primary);
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
 }
 
 .navigation-logo-wrapper {
-  width: 200px;
+  width: 150px;
 }
