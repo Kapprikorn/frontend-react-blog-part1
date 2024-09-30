@@ -25,6 +25,7 @@
 .nav-link {
   color: var(--color-white);
   text-decoration: none;
+  padding: 8px 2px 12px 2px;
 
   &.active {
     color: var(--color-primary);
