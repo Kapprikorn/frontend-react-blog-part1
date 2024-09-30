@@ -8,29 +8,27 @@ export default function NavBar() {
   const [activePage, setActivePage] = useState('');
 
   return (
-    <header className="header-wrapper">
-      <nav className="header-content">
-        <div className="navigation-logo-wrapper">
-          <img src={logo} alt="Company logo" />
-        </div>
-        <ul>
-          <li><NavLink onClick={() => setActivePage('Home')}
-                       className={activePage === 'Home'
-                                  ? 'nav-link active'
-                                  : 'nav-link'}
-                       to={'/'}>Home</NavLink></li>
-          <li><NavLink onClick={() => setActivePage('Overview')}
-                       className={activePage === 'Overview'
-                                  ? 'nav-link active'
-                                  : 'nav-link'}
-                       to={'/overview'}>Alle posts</NavLink></li>
-          <li><NavLink onClick={() => setActivePage('New Post')}
-                       className={activePage === 'New Post'
-                                  ? 'nav-link active'
-                                  : 'nav-link'}
-                       to={'/new post'}>Nieuwe post maken</NavLink></li>
-        </ul>
-      </nav>
-    </header>
+    <nav className="header-content">
+      <div className="navigation-logo-wrapper">
+        <img src={logo} alt="Company logo" />
+      </div>
+      <ul className="navigation-bar">
+        <li><NavLink onClick={() => setActivePage('Home')}
+                     className={activePage === 'Home'
+                                ? 'nav-link active'
+                                : 'nav-link'}
+                     to={'/'}>Home</NavLink></li>
+        <li><NavLink onClick={() => setActivePage('Overview')}
+                     className={activePage === 'Overview'
+                                ? 'nav-link active'
+                                : 'nav-link'}
+                     to={'/overview'}>Alle posts</NavLink></li>
+        <li><NavLink onClick={() => setActivePage('New Post')}
+                     className={activePage === 'New Post'
+                                ? 'nav-link active'
+                                : 'nav-link'}
+                     to={'/new post'}>Nieuwe post maken</NavLink></li>
+      </ul>
+    </nav>
   );
 }

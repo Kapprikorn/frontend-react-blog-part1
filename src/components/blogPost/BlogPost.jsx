@@ -9,12 +9,16 @@ export default function BlogPost({ blogs }) {
 
   return (
     <div className="blogpost-wrapper">
-      <h2>{blog.title}</h2>
-      <h3>{blog.subtitle}</h3>
+      <h1>{blog.title}</h1>
+      <h2>{blog.subtitle}</h2>
       <p>Geschreven door {blog.author} op {toDateStringNL(blog.created)}</p>
+      <p className="footnote">🕒 {blog.readTime} minuten lezen</p>
       <p>{blog.content}</p>
       <p className="footnote">{blog.comments} reacties - {blog.shares} keer gedeeld</p>
-      <button onClick={() => navigate('/')}>Terug naar de overzichtspagina</button>
+      <button className="btn-return"
+              onClick={() => navigate('/Overview')}>
+        Terug naar de overzichtspagina
+      </button>
     </div>
   );
 }

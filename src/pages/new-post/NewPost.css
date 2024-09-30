@@ -1,0 +1,10 @@
+.form-new-post {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  & input {
+    border: none;
+    background-color: var(--color-white);
+  }
+}

@@ -4,14 +4,11 @@ import BlogPostSummary from '../../components/blogPostSummary/BlogPostSummary.js
 export default function Overview({ blogs }) {
   return (
     <>
-      <h1>Overview</h1>
-      <p>Aantal blogposts: {blogs.length}</p>
+      <h1>Bekijk de {blogs.length} blog posts op dit platform</h1>
 
       <div className="blogpost-list-wrapper">
         {
-          blogs.map(blog => {
-            return <BlogPostSummary key={blog.title} blog={blog} />
-          })
+          blogs.map(blog => <BlogPostSummary key={blog.title} blog={blog} /> )
         }
       </div>
     </>
