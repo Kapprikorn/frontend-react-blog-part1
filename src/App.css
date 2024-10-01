@@ -20,3 +20,7 @@
     height: 50px;
     background-color: var(--color-primary);
 }
+
+.footer-content {
+    text-align: center;
+}

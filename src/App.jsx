@@ -67,7 +67,7 @@ function App() {
 
       <footer className="footer-wrapper">
         <div className="footer-content">
-
+          Blogventure © 2023 - ontwikkeld voor NOVI Hogeschool
         </div>
       </footer>
     </>

@@ -6,8 +6,11 @@ export default function BlogPostSummary({ blog }) {
 
   return (
     <div className="blogpost-summary-wrapper" onClick={() => navigate(`/posts/${blog.id - 1}`)}>
-      <h5>{blog.title}</h5>
+      <div className="card-header">
+        <p className="blogpost-summary-title"><b>{blog.title}</b></p>
+        <p>({blog.author})</p>
+      </div>
       <p className="footnote">{blog.comments} reacties - {blog.shares} keer gedeeld</p>
     </div>
-  )
+  );
 }
