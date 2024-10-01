@@ -1,0 +1,27 @@
+.form-new-post {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  & input, & textarea {
+    border: none;
+    background-color: var(--color-white);
+    padding: 4px;
+    border-radius: 4px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  & textarea {
+    resize: vertical;
+  }
+
+  & button {
+    margin-top: 16px;
+    padding: 4px;
+    border: none;
+    background-color: var(--color-primary);
+  }
+}

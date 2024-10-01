@@ -1,0 +1,22 @@
+.blogpost-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  max-width: 65ch;
+}
+
+.btn-return {
+  border: none;
+  background-color: rgb(from var(--color-primary) r g b / 10%);
+  border-radius: 10px;
+  color: var(--color-primary);
+  cursor: pointer;
+  width: min-content;
+  text-wrap: nowrap;
+  padding: 2px 4px;
+
+  &::before {
+    content: '< ';
+  }
+}
