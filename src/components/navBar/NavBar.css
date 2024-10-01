@@ -37,3 +37,7 @@
 .navigation-logo-wrapper {
   width: 150px;
 }
+
+.navigation-logo {
+  cursor: pointer;
+}

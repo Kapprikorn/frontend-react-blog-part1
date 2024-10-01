@@ -3,7 +3,7 @@ import './NewPost.css';
 export default function NewPost({ form, changeForm, onSubmit }) {
   return (
     <>
-      <h1>New Post</h1>
+      <h1>Post toevoegen</h1>
 
       <form className="form-new-post" onSubmit={(event) => onSubmit(event)}>
         <label>Titel</label>
@@ -28,12 +28,16 @@ export default function NewPost({ form, changeForm, onSubmit }) {
                placeholder="Piet Heijn"
                onChange={(e) => changeForm('author', e.target.value)} />
         <label>Bericht</label>
-        <input type="text"
-               id="form-input-content"
-               name="content"
-               value={form.content}
-               placeholder="Plaats hier uw bericht"
-               onChange={(e) => changeForm('content', e.target.value)} />
+        <textarea rows="4" cols="50"
+                  id="form-input-content"
+                  name="content"
+                  value={form.content}
+                  placeholder="Plaats hier uw bericht"
+                  onChange={(e) => changeForm('content', e.target.value)} />
+        <button className=""
+                onClick={(e) => onSubmit(e)}>
+          Toevoegen
+        </button>
       </form>
     </>
   );

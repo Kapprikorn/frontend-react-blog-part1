@@ -3,8 +3,23 @@
   flex-direction: column;
   gap: 2px;
 
-  & input {
+  & input, & textarea {
     border: none;
     background-color: var(--color-white);
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  & textarea {
+    resize: vertical;
+  }
+
+  & button {
+    margin-top: 16px;
+    padding: 4px;
+    border: none;
+    background-color: var(--color-primary);
   }
 }

@@ -1,16 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo-medium.png';
 
 import './NavBar.css';
 import { useState } from 'react';
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const [activePage, setActivePage] = useState('');
 
   return (
     <nav className="header-content">
       <div className="navigation-logo-wrapper">
-        <img src={logo} alt="Company logo" />
+        <img className="navigation-logo" src={logo} alt="Company logo" onClick={() => navigate('/')} />
       </div>
       <ul className="navigation-bar">
         <li><NavLink onClick={() => setActivePage('Home')}

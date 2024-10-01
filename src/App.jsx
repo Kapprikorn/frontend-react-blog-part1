@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
 import Overview from './pages/overview/Overview.jsx';
 import NewPost from './pages/new-post/NewPost.jsx';
@@ -10,19 +10,38 @@ import { useState } from 'react';
 import BlogPost from './components/blogPost/BlogPost.jsx';
 
 function App() {
+  const navigate = useNavigate();
   const initialFormState = {
-    'title': '', 'subtitle': '', 'author': '', 'message': '',
+    title: '',
+    subtitle: '',
+    author: '',
+    content: '',
   };
   const [form, setForm] = useState(initialFormState);
   const [blogs, setBlogs] = useState(data);
 
   function changeForm(name, value) {
-    setForm({...form, [name]: value});
+    setForm({ ...form, [name]: value });
   }
 
   function addBlog(event) {
     event.preventDefault();
-    setBlogs({ ...blogs, form });
+    const newBlog = {
+      id: blogs.length + 1,
+      title: form.title,
+      subtitle: form.subtitle,
+      content: form.content,
+      author: form.author,
+      created: new Date().toISOString(),
+      readTime: Math.ceil(form.content.split(' ').length / 333),
+      comments: 0,
+      shares: 0,
+    };
+    // show
+    console.log('New Blog Post:', newBlog);
+    setBlogs([ ...blogs, newBlog ]);
+    setForm(initialFormState);
+    navigate(`/posts/${newBlog.id - 1}`);
   }
 
   return (
@@ -31,26 +50,26 @@ function App() {
         <NavBar />
       </header>
 
-        <main className="main-wrapper">
-          <div className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/overview" element={<Overview blogs={blogs} />} />
-              <Route path="/posts/:id" element={<BlogPost blogs={blogs} />} />
-              <Route path="/new post"
-                     element={<NewPost form={form}
-                                       changeForm={() => changeForm}
-                                       onSubmit={(event) => addBlog(event)} />} />
-              <Route path="/404" element={<Error404 />} />
-            </Routes>
-          </div>
-        </main>
+      <main className="main-wrapper">
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/overview" element={<Overview blogs={blogs} />} />
+            <Route path="/posts/:id" element={<BlogPost blogs={blogs} />} />
+            <Route path="/new post"
+                   element={<NewPost form={form}
+                                     changeForm={ (name, value) => changeForm(name, value) }
+                                     onSubmit={ (event) => addBlog(event)} /> } />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </div>
+      </main>
 
-        <footer className="footer-wrapper">
-          <div className="footer-content">
+      <footer className="footer-wrapper">
+        <div className="footer-content">
 
-          </div>
-        </footer>
+        </div>
+      </footer>
     </>
   );
 }
